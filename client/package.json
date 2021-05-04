@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "tradie-tracker",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "SERN tradie tracker application",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
