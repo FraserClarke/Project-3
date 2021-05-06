@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
 
+
+
 const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || "development";
 const config = require(`${__dirname}/../config/connection.js`)[env];
@@ -27,7 +29,7 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach((file) => {
-    const model = require(path.join(__dirname, file));
+    const model = sequelize['import'](path.join(__dirname, file));
     db[model.name] = model;
   });
 
