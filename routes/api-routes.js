@@ -20,12 +20,17 @@ module.exports = function (app) {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
-      email: req.body.email,
+      userName: req.body.userName,
       password: req.body.password,
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phoneNumber: req.body.phoneNumber,
+      address: req.body.address,
+      ownersTrade: req.body.ownersTrade,
+      email: req.body.email,
     })
       .then(() => {
+        console.log(res);
         res.redirect(307, "/api/login");
       })
       .catch((err) => {

@@ -3,9 +3,12 @@ import React, { useState } from "react";
 // import Col from "../../components/Col";
 // import Nav from "../Components/NavSignLogin";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {registerUser} from '../utils/API'
+console.log(registerUser);
 
 function Signup() {
-  const [username, setUsername] = useState();
+  const [userName, setUserName] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -13,14 +16,38 @@ function Signup() {
   const [address, setAddress] = useState();
   const [ownersTrade, setOwnersTrade] = useState();
 
+//   const [registerState, setRegisterState] = useState({
+//     username: '',
+//     password: '',
+//     firstName: '',
+//     lastName: '',
+//     phoneNumber: '',
+//     address: '',
+//     ownersTrade: '',
+// });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("username is " + username);
-    console.log("password is " + password);
-    console.log("First name is " + firstName);
-    console.log("last name is " + lastName);
-    console.log("Phone Number is " + phoneNumber);
-    console.log("Addresss is " + address);
+    const userData = {
+        userName: userName,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        address: address,
+        email: email,
+        ownersTrade: ownersTrade,
+        
+    }
+    console.log(userData);
+    const response = registerUser(userData);
+    console.log(response);
+    // console.log("username is " + username);
+    // console.log("password is " + password);
+    // console.log("First name is " + firstName);
+    // console.log("last name is " + lastName);
+    // console.log("Phone Number is " + phoneNumber);
+    // console.log("Addresss is " + address);
   };
 
   return (
@@ -110,7 +137,7 @@ function Signup() {
             </div>
 
             {/* IF BUSINESS OWNER */}
-            {/* ----------------------------------------------- */}
+            {/* ------------^^^^^^^^^^^^^^^^^------------- */}
 
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Email address</label>
@@ -119,7 +146,17 @@ function Signup() {
                 className="form-control"
                 id="email-input"
                 placeholder="Email"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
+              ></input>
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleInputUserName">User Name</label>
+              <input
+                type="userName"
+                className="form-control"
+                id="userName-input"
+                placeholder="userName"
+                onChange={(e) => setUserName(e.target.value)}
               ></input>
             </div>
             <div className="form-group">

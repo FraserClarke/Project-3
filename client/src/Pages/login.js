@@ -54,7 +54,7 @@ function Login() {
               <span className="msg"></span>
             </div>
             <button type="submit" className="btn btn-default">
-              Sign Up
+              Log in
             </button>
           </form>
           <br />
