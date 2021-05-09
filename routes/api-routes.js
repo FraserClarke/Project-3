@@ -10,9 +10,16 @@ module.exports = function (app) {
     console.log(req.user);
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
-      email: req.user.email,
+      userName: req.user.userName,
       id: req.user.id,
-    });
+    })
+    // .then(() => {
+    //   console.log(res);
+    //   res.redirect(307, "/api/dashboard");
+    // })
+    // .catch((err) => {
+    //   res.status(401).json(err);
+    // });
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

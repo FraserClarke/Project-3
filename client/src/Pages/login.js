@@ -3,14 +3,21 @@ import React, { useState } from "react";
 // import Col from "../../components/Col";
 // import Nav from "../Components/NavSignLogin";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { loginUser } from "../utils/API";
 
 function Login() {
-  const [username, setUsername] = useState();
+  const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("username is " + username);
+    const user = {
+      userName: userName,
+      password: password,
+    };
+    const response = loginUser(user);
+    console.log(response);
+    console.log("username is " + userName);
     console.log("password is " + password);
   };
 
@@ -21,13 +28,13 @@ function Login() {
           <h2>Login Form</h2>
           <form onSubmit={handleSubmit} className="login">
             <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
+              <label htmlFor="exampleInputUserName">User Name</label>
               <input
-                type="email"
+                type="userName"
                 className="form-control"
-                id="email-input"
-                placeholder="Email"
-                onChange={(e) => setUsername(e.target.value)}
+                id="userName-input"
+                placeholder="userName"
+                onChange={(e) => setUserName(e.target.value)}
               ></input>
             </div>
             <div className="form-group">

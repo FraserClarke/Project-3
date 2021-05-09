@@ -10,16 +10,17 @@ export const registerUser = (userData) => {
     phoneNumber: userData.phoneNumber,
     address: userData.address,
     ownersTrade: userData.ownersTrade,
+    email: userData.email,
   });
 };
 
-// export const loginUser = (userData) => {
-//     // console.log(userData);
-//     return axios.post('/api/login', {
-//         email: userData.email,
-//         password: userData.password,
-//     });
-// };
+export const loginUser = (userData) => {
+  // console.log(userData);
+  return axios.post("/api/login", {
+    userName: userData.userName,
+    password: userData.password,
+  });
+};
 
 // export const getUser = () => {
 //     return axios.get('/api/profile');

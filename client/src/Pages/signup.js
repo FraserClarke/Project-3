@@ -39,7 +39,7 @@ function Signup() {
         ownersTrade: ownersTrade,
         
     }
-    console.log(userData);
+    // console.log(userData);
     const response = registerUser(userData);
     console.log(response);
     // console.log("username is " + username);
