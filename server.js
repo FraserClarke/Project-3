@@ -8,6 +8,11 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
+
+var cors = require('cors')
+app.use(cors())
+
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

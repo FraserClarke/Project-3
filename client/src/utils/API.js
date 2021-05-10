@@ -1,8 +1,9 @@
 import axios from "axios";
+const url = "http://localhost:8080"
 
 export const registerUser = (userData) => {
   // console.log(userData);
-  return axios.post("/api/signup", {
+  return axios.post(`${url}/api/signup`, {
     userName: userData.userName,
     password: userData.password,
     firstName: userData.firstName,
@@ -16,7 +17,7 @@ export const registerUser = (userData) => {
 
 export const loginUser = (userData) => {
   // console.log(userData);
-  return axios.post("/api/login", {
+  return axios.post(`${url}/api/login`, {
     userName: userData.userName,
     password: userData.password,
   });

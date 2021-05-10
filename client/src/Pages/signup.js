@@ -40,7 +40,10 @@ function Signup() {
         
     }
     // console.log(userData);
-    const response = registerUser(userData);
+    const response = registerUser(userData, (req, res) =>{
+        res.then(307, "/api/login");
+    });
+    //res.then etc
     console.log(response);
     // console.log("username is " + username);
     // console.log("password is " + password);
