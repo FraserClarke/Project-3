@@ -23,10 +23,14 @@ export const loginUser = (userData) => {
   });
 };
 
-// export const getUser = () => {
-//     return axios.get('/api/profile');
-// };
+export const user_Data = () => {
+    return axios.get('/api/user_data');
+};
 
-// export const getUsers = () => {
-//     return axios.get('/api/displayusers')
-// };
+export const getUser = () => {
+    return axios.get('/api/profile');
+};
+
+export const getUsers = () => {
+    return axios.get('/api/displayusers')
+};

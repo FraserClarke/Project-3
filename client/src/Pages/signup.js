@@ -4,7 +4,7 @@ import React, { useState } from "react";
 // import Col from "../../components/Col";
 // import Nav from "../Components/NavSignLogin";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {registerUser} from '../utils/API'
+import { registerUser } from "../utils/API";
 // import isauthenticated from "../../../config/middleware/isauthenticated";
 import { useHistory } from "react-router-dom";
 console.log(registerUser);
@@ -19,98 +19,50 @@ function Signup() {
   const [address, setAddress] = useState();
   const [ownersTrade, setOwnersTrade] = useState();
 
-//   const [registerState, setRegisterState] = useState({
-//     username: '',
-//     password: '',
-//     firstName: '',
-//     lastName: '',
-//     phoneNumber: '',
-//     address: '',
-//     ownersTrade: '',
-// });
-const history = useHistory();
-async function handleSubmit(event) {
+  //const [errors, setErrors] = useState({});
+
+  //   const [registerState, setRegisterState] = useState({
+  //     username: '',
+  //     password: '',
+  //     firstName: '',
+  //     lastName: '',
+  //     phoneNumber: '',
+  //     address: '',
+  //     ownersTrade: '',
+  // });
+  const history = useHistory();
+  async function handleSubmit(event) {
     event.preventDefault();
     const userData = {
-        userName: userName,
-        password: password,
-        firstName: firstName,
-        lastName: lastName,
-        phoneNumber: phoneNumber,
-        address: address,
-        email: email,
-        ownersTrade: ownersTrade,
-        //registerUser()then redirect
+      userName: userName,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+      phoneNumber: phoneNumber,
+      address: address,
+      email: email,
+      ownersTrade: ownersTrade,
+      //registerUser()then redirect
     };
-    
+
     // console.log(userData);
-    registerUser(userData).then(response => {
-        //logic to do redirect if response is valid user. api backend res.semd
-        console.log(response);
-        //add backend handling to verify valid user. backend res.send api backend res.semd
-        //if statement...>>user us valid then history.push.
-        //else >> display error message if unsucessfull.
-        //can have ONE useSTATE for displaing unsuccessful "EROR MESSAGE" 
-        //signup message for invalid user
-
-
-        history.push("/login");
-        
-
-
-
-    })  
-        // const res = await registerUser(userData);
-        // history.push("http://localhost:8080/api/login");
-        // location.replace('/api/login/);
-        // res.then(() => {
-        //     window.location.href("api/login");
-        //     // If there's an error, log the error
-        //   })
-        //   .catch(err => {
-        //     console.log(err);
-        //   });
-   
-    // then(() => {
-    //     window.location.replace("/login");
-    //     // If there's an error, log the error
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
-    //res.then etc
-
-    //   async function handleSubmit(event) {
-//     event.preventDefault();
-  
-//     try {
-//       await Auth.signIn(email, password);
-//       userHasAuthenticated(true);
-//       history.push("/");
-//     } catch (e) {
-//       alert(e.message);
-//     }
-//   }
-    
-    
-    // console.log("username is " + username);
-    // console.log("password is " + password);
-    // console.log("First name is " + firstName);
-    // console.log("last name is " + lastName);
-    // console.log("Phone Number is " + phoneNumber);
-    // console.log("Addresss is " + address);
+    registerUser(userData).then((response) => {
+      //logic to do redirect if response is valid user.
+      console.log(response);
+      //add backend handling to verify valid user. backend res.send api d
+      //if statement...>>user us valid then history.push.
+      history.push("/login");
+    //   if (!userData.userName || !userData.password) {
+    //     history.push("/login");
+    //   } else {
+    //     console.log("Input Error.");
+    //   }
+      //else >> display error message if unsucessfull.
+      //can have ONE useSTATE for displaing unsuccessful "EROR MESSAGE"
+      //signup message for invalid user
+    });  
   };
-//   async function handleSubmit(event) {
-//     event.preventDefault();
   
-//     try {
-//       await Auth.signIn(email, password);
-//       userHasAuthenticated(true);
-//       history.push("/");
-//     } catch (e) {
-//       alert(e.message);
-//     }
-//   }
   return (
     <div className="container">
       <div className="row">
@@ -161,7 +113,6 @@ async function handleSubmit(event) {
             {/* IF BUSINESS OWNER */}
             {/* ----------------------------------------------- */}
             <div className="form-group">
-              
               <label htmlFor="ownersTrade">
                 Please Select the Trade that applies to you
               </label>{" "}
@@ -243,10 +194,13 @@ async function handleSubmit(event) {
               <span className="sr-only">Error:</span>{" "}
               <span className="msg"></span>
             </div>
-            <button onClick={handleSubmit} type="submit" className="btn btn-default">
+            <button
+              onClick={handleSubmit}
+              type="submit"
+              className="btn btn-default"
+            >
               Sign Up
             </button>
-            
           </form>
           <br />
           <p>

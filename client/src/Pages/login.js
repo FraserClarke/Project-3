@@ -4,21 +4,25 @@ import React, { useState } from "react";
 // import Nav from "../Components/NavSignLogin";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { loginUser } from "../utils/API";
+import { useHistory } from "react-router-dom";
 
 function Login() {
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
 
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
       userName: userName,
       password: password,
     };
-    const response = loginUser(user);
-    console.log(response);
-    console.log("username is " + userName);
-    console.log("password is " + password);
+
+    loginUser(user).then((response) => {
+      console.log(response);
+
+      history.push("/members");
+    });
   };
 
   return (
@@ -60,7 +64,11 @@ function Login() {
               <span className="sr-only">Error:</span>{" "}
               <span className="msg"></span>
             </div>
-            <button type="submit" className="btn btn-default">
+            <button
+              onClick={handleSubmit}
+              type="submit"
+              className="btn btn-default"
+            >
               Log in
             </button>
           </form>
