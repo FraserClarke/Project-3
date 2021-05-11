@@ -38,6 +38,7 @@ module.exports = function (app) {
     })
       .then(() => {
         console.log(res);
+        //res.send not redirect
         res.redirect(307, "/api/login");
       })
       .catch((err) => {
