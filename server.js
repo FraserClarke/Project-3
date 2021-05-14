@@ -3,11 +3,11 @@ const path = require("path");
 const session = require("express-session");
 const routes = require("./routes")
 const cors = require("cors");
-//const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const passport = require("./config/passport");
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 8080;
+// const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 
