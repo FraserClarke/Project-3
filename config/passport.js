@@ -2,7 +2,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 
-const User = require('../models/');
+const db = require('../models/');
 // const db = require("../models/user");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
@@ -15,7 +15,7 @@ passport.use(
       },
       (email, password, done) => {
         // When a user tries to login this code runs
-        User.findOne(
+        db.User.findOne(
           {
             email: email
           }
@@ -28,9 +28,14 @@ passport.use(
           }
           // If there is a user with the given email, but the password the user gives us is incorrect
           else if (!bcrypt.compareSync(password, dbUser.password)) {
+            console.log(password);
+            console.log(dbUser.password);
             return done(null, false, {
+              
               message: "Incorrect password."
+              
             });
+            
           }
           // If none of the above, attach the database's user object to the request that invokes this function
           return done(null, dbUser);
