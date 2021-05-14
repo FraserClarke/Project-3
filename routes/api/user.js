@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require("../../config/passport");
 const User = require('../../models/user');
 const bcrypt = require('bcrypt');
-
+const db = require("../../models");
 
 // Matches with POST /api/user/login
 // Runs through the config/passport.js code because we added passport.authenticate('local') as a second parameter
@@ -21,7 +21,7 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
   // If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   router.post("/signup", async (req, res) => {
-    User.create({
+    db.User.create({
       email: req.body.email,
       username: req.body.username,
       password: await bcrypt.hash(req.body.password, 10)

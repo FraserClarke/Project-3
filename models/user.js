@@ -10,41 +10,41 @@ module.exports = (sequelize, DataTypes) => {
         len: [1],
       },
     },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      Validate: {
-        len: [1],
-      },
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      Validate: {
-        len: [1],
-      },
-    },
-    phoneNumber: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      Validate: {
-        len: [1],
-      },
-    },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      Validate: {
-        len: [1],
-      },
-    },
-    ownersTrade: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      Validate: {
-        len: [1],
-      },
-    },
+    // firstName: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   Validate: {
+    //     len: [1],
+    //   },
+    // },
+    // lastName: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   Validate: {
+    //     len: [1],
+    //   },
+    // },
+    // phoneNumber: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   Validate: {
+    //     len: [1],
+    //   },
+    // },
+    // address: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   Validate: {
+    //     len: [1],
+    //   },
+    // },
+    // ownersTrade: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   Validate: {
+    //     len: [1],
+    //   },
+    // },
 
     email: {
       type: DataTypes.STRING,
