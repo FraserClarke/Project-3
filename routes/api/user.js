@@ -24,7 +24,8 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
     db.User.create({
       email: req.body.email,
       username: req.body.username,
-      password: await bcrypt.hash(req.body.password, 10)
+      password: req.body.password
+    //   password: await bcrypt.hash(req.body.password, 10)
     })
       .then((user)=>{
         
