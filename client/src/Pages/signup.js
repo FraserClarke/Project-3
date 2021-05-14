@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 console.log(registerUser);
 // const history = useHistory();  //>>>>>>>has to be inside a function
 function Signup() {
-  const [userName, setUserName] = useState();
+  const [username, setusername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [firstName, setFirstName] = useState();
@@ -34,7 +34,7 @@ function Signup() {
   async function handleSubmit(event) {
     event.preventDefault();
     const userData = {
-      userName: userName,
+      username: username,
       password: password,
       firstName: firstName,
       lastName: lastName,
@@ -52,7 +52,7 @@ function Signup() {
       //add backend handling to verify valid user. backend res.send api d
       //if statement...>>user us valid then history.push.
       history.push("/login");
-    //   if (!userData.userName || !userData.password) {
+    //   if (!userData.username || !userData.password) {
     //     history.push("/login");
     //   } else {
     //     console.log("Input Error.");
@@ -162,13 +162,13 @@ function Signup() {
               ></input>
             </div>
             <div className="form-group">
-              <label htmlFor="exampleInputUserName">User Name</label>
+              <label htmlFor="exampleInputusername">User Name</label>
               <input
-                type="userName"
+                type="username"
                 className="form-control"
-                id="userName-input"
-                placeholder="userName"
-                onChange={(e) => setUserName(e.target.value)}
+                id="username-input"
+                placeholder="username"
+                onChange={(e) => setusername(e.target.value)}
               ></input>
             </div>
             <div className="form-group">

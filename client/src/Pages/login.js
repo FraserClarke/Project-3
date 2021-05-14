@@ -5,16 +5,16 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { loginUser } from "../utils/API";
 import { useHistory } from "react-router-dom";
-
+console.log(loginUser);
 function Login() {
-  const [userName, setUserName] = useState();
+  const [username, setusername] = useState();
   const [password, setPassword] = useState();
 
   const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
-      userName: userName,
+      username: username,
       password: password,
     };
 
@@ -32,13 +32,13 @@ function Login() {
           <h2>Login Form</h2>
           <form onSubmit={handleSubmit} className="login">
             <div className="form-group">
-              <label htmlFor="exampleInputUserName">User Name</label>
+              <label htmlFor="exampleInputusername">User Name</label>
               <input
-                type="userName"
+                type="username"
                 className="form-control"
-                id="userName-input"
-                placeholder="userName"
-                onChange={(e) => setUserName(e.target.value)}
+                id="username-input"
+                placeholder="username"
+                onChange={(e) => setusername(e.target.value)}
               ></input>
             </div>
             <div className="form-group">

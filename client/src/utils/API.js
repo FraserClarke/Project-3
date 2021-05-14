@@ -1,36 +1,41 @@
 import axios from "axios";
-const url = "http://localhost:8080"
 
-export const registerUser = (userData) => {
-  // console.log(userData);
-  return axios.post(`${url}/api/signup`, {
-    userName: userData.userName,
-    password: userData.password,
-    firstName: userData.firstName,
-    lastName: userData.lastName,
-    phoneNumber: userData.phoneNumber,
-    address: userData.address,
-    ownersTrade: userData.ownersTrade,
-    email: userData.email,
-  });
-};
+const axiosInstance = axios.create({
+  baseURL: window.location.host.includes('localhost') ? 'http://localhost:3001' : '',
+  withCredentials: true
+})
 
-export const loginUser = (userData) => {
-  // console.log(userData);
-  return axios.post(`${url}/api/login`, {
-    userName: userData.userName,
-    password: userData.password,
-  });
-};
+export default {
+  // User sign up
+  userSignup: function (userData) {
+    return axiosInstance({
+      method: 'post',
+      url: "/api/user/signup",
+      data: userData
+    })
+  },
 
-export const user_Data = () => {
-    return axios.get('/api/user_data');
-};
+  // User log in
+  userLogin: function (userData) {
+    return axiosInstance({
+      method: 'post',
+      url: "/api/user/login",
+      data: userData
+    })
+  },
 
-export const getUser = () => {
-    return axios.get('/api/profile');
-};
+  // Check if user is logged in
+  userLoggedIn: function() {
+    return axiosInstance({
+      method: 'get',
+      url: "/api/user/logged-in",
+    })
+  },
 
-export const getUsers = () => {
-    return axios.get('/api/displayusers')
+  userLogout: function() {
+    return axiosInstance({
+      method: 'get',
+      url: "/api/user/logout",
+    })
+  }
 };

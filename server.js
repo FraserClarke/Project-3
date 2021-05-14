@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
+const apiRoutes = require("./routes/index.js"); 
 //const PORT = process.env.PORT || 3001;
 const app = express();
 const passport = require("./config/passport");
@@ -37,7 +38,8 @@ app.use(passport.session());
 
 // Requiring our routes
 //require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+require("./routes/index.js")(app);
+// app.use("", apiRoutes);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {

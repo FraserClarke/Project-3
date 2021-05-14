@@ -1,51 +1,50 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import logo from "./logo.svg";
-import "./App.css";
-import Signup from "./Pages/signup";
-import Login from "./Pages/login";
-import Nav from "./Components/NavSignLogin";
-// import Nav from "./Components/NavSignLogin";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import login from "./pages/login";
-// import signup from "./pages/signup";
+import React, {useState, useEffect} from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
+//import pages
+import SignUp from './pages/SignUp';
+import Login from './pages/Login';
+import { AuthContext } from "./utils/authContext";
+import { Main } from "./pages/Main";
+import API from "./utils/API";
+
+function App(){
+
+  const [isAuthenticated, setIsAuthenticated ] = useState(false);
+  const value = { isAuthenticated, setIsAuthenticated };
+
+  // We check if user is already logged in, and if they are then we set isAuthenticated to true
+  useEffect(() => {
+    API.userLoggedIn().then(response => {
+      setIsAuthenticated(response.data.isAuthenticated)
+    })
+  }, []);
+
+
   return (
-    // <Router>
-    <Router>
-    <div className="pl-0 pr-0 m-0 container-fluid">
-        <Nav />
-        {/* <Route exact path="/" component={Landing} /> */}
-        <div className="p-0 m-0 container-fluid">
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
-            {/* <PrivateRoute exact path="/profile" component={Profile} />
-            <PrivateRoute exact path="/dashboard" component={(Dashboard)} />
-            <PrivateRoute exact path="/other" component={(Other)} />
-            <PrivateRoute exact path="/startUp" component={StartUp} /> */}
-        </div>
-    </div>
-</Router>
-    // </Router>
-  );
+    <AuthContext.Provider value={value}>
+      <Router>
+          <div>
+            <Switch>
+              <Route exact path='/signup'>
+                <SignUp />
+              </Route>
+              <Route exact path='/login'>
+                <Login />
+              </Route>
+              {
+                /* This following bit says that for every path that includes '/' (that is, all of them) we check if user is authenticated and if they're not we load the Login component. If they are, we load the Main component. Replace the main component with all your routes for handling protected pages that require authorisation.*/
+              }
+              <Route path='/'>
+                {isAuthenticated ? 
+                  <Main /> : <Login />
+                }
+              </Route>
+            </Switch>
+          </div>
+      </Router>
+    </AuthContext.Provider>
+  )
 }
-
-// function App() {
-//   return (
-//     <Router>
-//       <div>
-//         <Navbar />
-//         <Wrapper>
-//           <Route exact path="/" component={About} />
-//           <Route exact path="/about" component={About} />
-//           <Route exact path="/discover" component={Discover} />
-//           <Route exact path="/search" component={Search} />
-//         </Wrapper>
-//         <Footer />
-//       </div>
-//     </Router>
-//   );
-// }
 
 export default App;

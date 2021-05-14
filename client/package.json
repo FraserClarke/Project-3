@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "SERN tradie tracker application",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:8080/",
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
