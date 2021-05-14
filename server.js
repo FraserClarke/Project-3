@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
-const apiRoutes = require("./routes/index.js"); 
+const routes = require("./routes")
+const cors = require("cors");
 //const PORT = process.env.PORT || 3001;
 const app = express();
 const passport = require("./config/passport");
@@ -10,8 +11,11 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 
-var cors = require('cors')
-app.use(cors())
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}));
 
 
 // Define middleware here
@@ -38,7 +42,7 @@ app.use(passport.session());
 
 // Requiring our routes
 //require("./routes/html-routes.js")(app);
-require("./routes/index.js")(app);
+app.use(routes);
 // app.use("", apiRoutes);
 
 // Syncing our database and logging a message to the user upon success
