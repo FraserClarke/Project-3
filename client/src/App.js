@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import { AuthContext } from "./utils/authContext";
 import { Main } from "./pages/Main";
 import API from "./utils/API";
-
+// IMPORT COMPONENTS
 function App(){
 
   const [isAuthenticated, setIsAuthenticated ] = useState(false);
@@ -39,6 +39,12 @@ function App(){
                 {isAuthenticated ? 
                   <Main /> : <Login />
                 }
+              </Route>
+              <Route path= '/bookings'>
+                {/* BOOKINGS COMPONENTS */}
+              </Route>
+              <Route path= '/calendar'>
+                {/* BOOKINGS COMPONENTS */}
               </Route>
             </Switch>
           </div>
