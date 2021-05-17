@@ -123,8 +123,8 @@ Body
   padding-bottom: 50px;
   text-align: left;
   color: #f8f8f8;
-  background: linear-gradient(rgba(69, 152, 220, 0.6), rgba(79, 128, 207, 0.7)),
-    url("https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?w=940&h=650&auto=compress");
+  background: linear-gradient(rgba(111, 168, 214, 0.6), rgba(122, 197, 151, 0.7)),
+    url("https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
 }
 
@@ -208,5 +208,5 @@ Body
   font-family: "lato";
 }
 nav {
-     background-color:  blue !important; 
+     background-color:  rgb(32, 32, 114) !important; 
 }
