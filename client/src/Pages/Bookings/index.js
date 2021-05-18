@@ -53,6 +53,7 @@ export function Bookings() {
       <body>
         <div className="intro-header">
           <div className="container"></div>
+          Hello
         </div>
       </body>
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 
 export function Main() {
@@ -32,6 +33,8 @@ export function Main() {
             </a>
             
             {/* <a onClick={() => history.push('/bookings') }>Bookings</a> */}
+            <Link  to="/bookings">bookings</Link>
+
             <a href="/bookings">
               <p id="menuText" className="navbar-text navbar-right">
                 View Bookings
