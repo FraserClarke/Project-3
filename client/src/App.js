@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import { AuthContext } from "./utils/authContext";
 import { Main } from "./pages/Main";
+import { Bookings } from "./pages/Bookings";
 import API from "./utils/API";
 // IMPORT COMPONENTS
 function App(){
@@ -38,14 +39,17 @@ function App(){
               <Route path='/'>
                 {isAuthenticated ? 
                   <Main /> : <Login />
+                  
                 }
               </Route>
-              <Route path= '/bookings'>
+              <Route path= '/bookings' component={Bookings}>
+                <Bookings/>
                 {/* BOOKINGS COMPONENTS */}
               </Route>
-              <Route path= '/calendar'>
+              <Route path= '/'>
                 {/* BOOKINGS COMPONENTS */}
               </Route>
+              
             </Switch>
           </div>
       </Router>

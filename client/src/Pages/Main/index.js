@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import "./style.css";
 
+
 export function Main() {
   const history = useHistory();
   function logOut() {
@@ -26,21 +27,23 @@ export function Main() {
             <a href="#">
               {" "}
               <p id="menuText" className="navbar-text navbar-right">
-                Our Story
+                About
               </p>
             </a>
-
+            
+            {/* <a onClick={() => history.push('/bookings') }>Bookings</a> */}
+            <a href="/bookings">
+              <p id="menuText" className="navbar-text navbar-right">
+                View Bookings
+              </p>
+            </a>
             <a href="#">
               <p id="menuText" className="navbar-text navbar-right">
-                Agents
+                Quotes
               </p>
             </a>
-            <a href="#">
-              <p id="menuText" className="navbar-text navbar-right">
-                Listings
-              </p>
-            </a>
-            <button type="button" onClick={logOut}>
+            <button 
+            className="btn btn-default logoutBtn" type="button" onClick={logOut}>
               Logout
             </button>
             <i
@@ -69,7 +72,7 @@ export function Main() {
                       <a href="#">
                         <button className="button animated bounceInUp btn btn-info btn-lg">
                           {" "}
-                          <span className="network-name">View</span>
+                          <span className="network-name">View Bookings</span>
                         </button>
                       </a>
                     </li>
@@ -78,7 +81,7 @@ export function Main() {
                       <a href="#">
                         <button className="button2 animated bounceInUp btn btn-info btn-lg">
                           {" "}
-                          <span className="network-name">Request a quote</span>
+                          <span className="network-name">Pending Quotes</span>
                         </button>
                       </a>
                     </li>
