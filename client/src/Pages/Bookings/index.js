@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
-// import "./style.css";
-
+import "./style.css";
+import { Link } from "react-router-dom";
 export function Bookings() {
   const history = useHistory();
   function logOut() {
@@ -11,9 +11,6 @@ export function Bookings() {
   }
 
   return (
-    // <div>
-    //   You're logged in!
-
     <div className="start">
       <header>
         <nav className="navigation navbar navbar-default navbar-fixed-top">
@@ -26,21 +23,23 @@ export function Bookings() {
             <a href="#">
               {" "}
               <p id="menuText" className="navbar-text navbar-right">
-                Our Story
+                About
               </p>
             </a>
 
-            <a href="/bookings">
-              <p id="menuText" className="navbar-text navbar-right">
-                Bookings
-              </p>
-            </a>
+            {/* <a onClick={() => history.push('/bookings') }>Bookings</a> */}
+            <Link to="/bookings">Bookings</Link>
+
             <a href="#">
               <p id="menuText" className="navbar-text navbar-right">
-                Listings
+                Quotes
               </p>
             </a>
-            <button className="btn btn-default" type="button" onClick={logOut}>
+            <button
+              className="btn btn-default logoutBtn"
+              type="button"
+              onClick={logOut}
+            >
               Logout
             </button>
             <i
@@ -52,10 +51,26 @@ export function Bookings() {
       </header>
       <body>
         <div className="intro-header">
-          <div className="container"></div>
-          Hello
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8">
+                <label for="start">Start date:</label>
+
+                <input
+                  type="date"
+                  id="start"
+                  name="trip-start"
+                  value="2018-07-22"
+                  min="2018-01-01"
+                  max="2018-12-31"
+                ></input>
+              </div>
+              <div className="col-lg-4"></div>
+            </div>
+          </div>
         </div>
       </body>
     </div>
+    //</div>
   );
 }

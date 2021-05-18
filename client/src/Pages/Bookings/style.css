@@ -52,7 +52,7 @@ NAVIGATION
   color: rgb(109, 43, 43);
 }
 
-#menuText  {
+#menuText {
   font-weight: 150;
   font-size: 18px;
   color: white;
@@ -65,7 +65,7 @@ NAVIGATION
   padding: 10px 0px 0px 0px;
 }
 
-#navButton  {
+#navButton {
   font-weight: 500;
   font-size: 20px;
   border: none;
@@ -109,7 +109,7 @@ li {
 /**********************************
 Body
 ***********************************/
-.logoutBtn{
+.logoutBtn {
   color: white;
 }
 .learn:hover {
@@ -126,7 +126,10 @@ Body
   padding-bottom: 50px;
   text-align: left;
   color: #f8f8f8;
-  background: linear-gradient(rgba(132, 173, 206, 0.6), rgba(122, 197, 151, 0.7)),
+  background: linear-gradient(
+      rgba(132, 173, 206, 0.6),
+      rgba(122, 197, 151, 0.7)
+    ),
     url("https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
 }
@@ -211,5 +214,5 @@ Body
   font-family: "lato";
 }
 nav {
-     background-color:  rgb(75, 75, 110) !important; 
+  background-color: rgb(75, 75, 110) !important;
 }

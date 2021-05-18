@@ -36,6 +36,10 @@ function App(){
               {
                 /* This following bit says that for every path that includes '/' (that is, all of them) we check if user is authenticated and if they're not we load the Login component. If they are, we load the Main component. Replace the main component with all your routes for handling protected pages that require authorisation.*/
               }
+              <Route path= '/bookings' component={Bookings}>
+                <Bookings/>
+                {/* BOOKINGS COMPONENTS */}
+              </Route>
               <Route path='/'>
                 {isAuthenticated ? 
                   <Main /> : <Login />

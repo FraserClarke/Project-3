@@ -33,13 +33,9 @@ export function Main() {
             </a>
             
             {/* <a onClick={() => history.push('/bookings') }>Bookings</a> */}
-            <Link  to="/bookings">bookings</Link>
+            <Link  to="/bookings">Bookings</Link>
 
-            <a href="/bookings">
-              <p id="menuText" className="navbar-text navbar-right">
-                View Bookings
-              </p>
-            </a>
+           
             <a href="#">
               <p id="menuText" className="navbar-text navbar-right">
                 Quotes
